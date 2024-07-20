@@ -1,6 +1,6 @@
 # Skyfit
 
-![Skyfit](./assets/Skyfit_startup.png) <!-- Replace with your actual image path -->
+![Skyfit](./assets/Skyfit_Startup.png) <!-- Replace with your actual image path -->
 
 Skyfit is a comprehensive mobile application designed to support expectant mothers throughout their pregnancy journey. The app offers personalized insights for mothers and the unborn baby including tracking the expectant weeks of pregnancy to delivery period, nutrition tip and more ,appointment reminders, daily motivational support quote, GPS tracker for emergencies and an AI-driven chatbot for assistance.
 
