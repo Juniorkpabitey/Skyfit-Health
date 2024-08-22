@@ -1,16 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import * as GoogleGenerativeAI from "@google/generative-ai";
-import {
-  View,
-  Text,
-  TextInput,
-  FlatList,
-  StyleSheet,
-  ActivityIndicator,
-  TouchableOpacity,
-  KeyboardAvoidingView,
-  Platform,
-} from "react-native";
+import {View,Text,TextInput,FlatList,StyleSheet,ActivityIndicator,TouchableOpacity,KeyboardAvoidingView,Platform,} from "react-native";
 import * as Speech from "expo-speech";
 import { FontAwesome } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
