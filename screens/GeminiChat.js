@@ -17,7 +17,7 @@ const GeminiChat = () => {
 
   const API_KEY = REACT_APP_GEMINI_API_KEY;
 
-  useEffect(() => {
+  useEffect(() => { 
     const startChat = async () => {
       const genAI = new GoogleGenerativeAI.GoogleGenerativeAI(API_KEY);
       const model = genAI.getGenerativeModel({ model: "gemini-pro" });
