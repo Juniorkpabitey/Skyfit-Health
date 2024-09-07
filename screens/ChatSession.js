@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { View, TextInput, StyleSheet, Text, Image, TouchableOpacity, FlatList } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { collection, addDoc, query, orderBy, onSnapshot, doc } from 'firebase/firestore';
-import { database } from '../config/firebaseConfig';
+import { database } from '../../config/firebaseConfig';
 import firebase from 'firebase/app';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
