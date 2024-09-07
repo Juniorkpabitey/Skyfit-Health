@@ -1,32 +1,39 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome'; // or you can use any icon library you prefer
 
 const ProfileScreen = () => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.backButton}>
-        <Text style={styles.backButtonText}>{"<"}</Text>
-      </TouchableOpacity>
-      <View style={styles.profileContainer}>
-        <Image source={require('./path_to_profile_image.png')} style={styles.profileImage} />
+      {/* Profile Picture and Name */}
+      <View style={styles.profileSection}>
+        <Image 
+          source={{ uri: 'https://path-to-your-image.com/profile-image' }} 
+          style={styles.profileImage} 
+        />
         <Text style={styles.profileName}>Anne</Text>
       </View>
-      <View style={styles.menuContainer}>
-        <TouchableOpacity style={styles.menuItem}>
-          <Image source={require('./path_to_edit_profile_icon.png')} style={styles.menuIcon} />
-          <Text style={styles.menuText}>Edit Profile</Text>
+
+      {/* Options Section */}
+      <View style={styles.optionsContainer}>
+        <TouchableOpacity style={styles.optionButton}>
+          <Icon name="user" size={30} color="#fff" />
+          <Text style={styles.optionText}>Edit Profile</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem}>
-          <Image source={require('./path_to_pregnancy_track_icon.png')} style={styles.menuIcon} />
-          <Text style={styles.menuText}>Pregnancy Track</Text>
+
+        <TouchableOpacity style={styles.optionButton}>
+          <Icon name="calendar" size={30} color="#fff" />
+          <Text style={styles.optionText}>Pregnancy Track</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem}>
-          <Image source={require('./path_to_location_icon.png')} style={styles.menuIcon} />
-          <Text style={styles.menuText}>Location</Text>
+
+        <TouchableOpacity style={styles.optionButton}>
+          <Icon name="map-marker" size={30} color="#fff" />
+          <Text style={styles.optionText}>Location</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem}>
-          <Image source={require('./path_to_logout_icon.png')} style={styles.menuIcon} />
-          <Text style={styles.menuText}>Logout</Text>
+
+        <TouchableOpacity style={styles.optionButton}>
+          <Icon name="sign-out" size={30} color="#fff" />
+          <Text style={styles.optionText}>Logout</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -34,16 +41,47 @@ const ProfileScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#F3E1E1', padding: 20 },
-  backButton: { marginBottom: 10 },
-  backButtonText: { fontSize: 18, color: '#6D4C41' },
-  profileContainer: { alignItems: 'center', marginBottom: 20 },
-  profileImage: { width: 120, height: 120, borderRadius: 60 },
-  profileName: { fontSize: 24, fontWeight: 'bold', marginTop: 10 },
-  menuContainer: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between' },
-  menuItem: { width: '48%', backgroundColor: '#FFF', borderRadius: 10, padding: 20, alignItems: 'center', marginBottom: 20 },
-  menuIcon: { width: 40, height: 40, marginBottom: 10 },
-  menuText: { fontSize: 16, fontWeight: 'bold' },
+  container: {
+    flex: 1,
+    backgroundColor: '#f7e9e4',
+    alignItems: 'center',
+    paddingTop: 20,
+  },
+  profileSection: {
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  profileImage: {
+    width: 120,
+    height: 120,
+    borderRadius: 60,
+  },
+  profileName: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    color: '#423a3a',
+    marginTop: 10,
+  },
+  optionsContainer: {
+    width: '80%',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
+  optionButton: {
+    width: '45%',
+    backgroundColor: '#c93a47',
+    padding: 20,
+    borderRadius: 15,
+    alignItems: 'center',
+    marginVertical: 10,
+  },
+  optionText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: '600',
+    marginTop: 10,
+  },
 });
 
 export default ProfileScreen;
