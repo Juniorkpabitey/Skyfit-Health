@@ -27,7 +27,9 @@ const Dashboard = ({ navigation, route }) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
+      <TouchableOpacity onPress={() => navigation.navigate('Profile', { email, name })}>
         <Image source={{ uri: getProfileImageUrl(email) }} style={styles.profileImage} />
+        </TouchableOpacity>
         <Text style={styles.greeting}>Hi, {name}</Text>
         <View style={styles.icons}>
           <TouchableOpacity>
