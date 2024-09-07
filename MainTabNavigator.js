@@ -1,5 +1,5 @@
 // MainTabNavigator.js
-import * as React from 'react';
+import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { View, Text, StyleSheet } from 'react-native';
@@ -12,6 +12,7 @@ import ChatSession from './screens/ChatSession';
 import Mother from './screens/Mother';
 import Baby from './screens/Baby';
 import MapScreen from './screens/MapScreen';
+import Profile from './screens/Profile'; // Import your ProfileScreen
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -22,6 +23,26 @@ function MessageStack() {
       <Stack.Screen name="Message" component={Message} options={{ headerShown: false }} />
       <Stack.Screen name="ChatSession" component={ChatSession} options={{ headerShown: false }} />
       <Stack.Screen name="MapScreen" component={MapScreen} options={{ headerShown: false }} />
+    </Stack.Navigator>
+  );
+}
+
+function DashboardStack({ route }) {
+  const { email, firstName } = route.params;
+  
+  return (
+    <Stack.Navigator>
+      <Stack.Screen 
+        name="Dashboard" 
+        component={Dashboard} 
+        options={{ headerShown: false }} 
+        initialParams={{ email, firstName }} 
+      />
+      <Stack.Screen 
+        name="Profile" 
+        component={Profile} 
+        options={{ headerShown: false }} 
+      />
     </Stack.Navigator>
   );
 }
@@ -39,13 +60,13 @@ export default function MainTabNavigator({ route }) {
 
   return (
     <Tab.Navigator
-      initialRouteName="Dashboard"
+      initialRouteName="DashboardStack"
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused }) => {
           let iconName;
 
           switch (route.name) {
-            case 'Dashboard':
+            case 'DashboardStack':
               iconName = focused ? 'home' : 'home-outline';
               break;
             case 'Mother':
@@ -73,7 +94,7 @@ export default function MainTabNavigator({ route }) {
         tabBarLabel: ({ focused, color }) => {
           let label;
           switch (route.name) {
-            case 'Dashboard':
+            case 'DashboardStack':
               label = 'Home';
               break;
             case 'Mother':
@@ -103,9 +124,11 @@ export default function MainTabNavigator({ route }) {
         headerShown: false,
       })}
     >
-      <Tab.Screen name="Dashboard">
-        {props => <Dashboard {...props} email={email} firstName={firstName} />}
-      </Tab.Screen>
+      <Tab.Screen 
+        name="DashboardStack" 
+        component={DashboardStack} 
+        initialParams={{ email, firstName }} 
+      />
       <Tab.Screen name="Mother" component={Mother} />
       <Tab.Screen name="Baby" component={Baby} />
       <Tab.Screen name="Appointment" component={Appointment} />
