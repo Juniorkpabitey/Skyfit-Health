@@ -4,15 +4,15 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { View, Text, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Dashboard from './screens/Dashboard';
-import Appointment from './screens/Appointment';
-import GeminiChat from './screens/GeminiChat';
-import Message from './screens/Message';
-import ChatSession from './screens/ChatSession';
-import Mother from './screens/Mother';
-import Baby from './screens/Baby';
-import MapScreen from './screens/MapScreen';
-import Profile from './screens/Profile'; // Import your ProfileScreen
+import Dashboard from './components/screens/Dashboard';
+import Appointment from './components/screens/Appointment';
+import GeminiChat from './components/screens/GeminiChat';
+import Message from './components/screens/Message';
+import ChatSession from './components/screens/ChatSession';
+import Mother from './components/screens/Mother';
+import Baby from './components/screens/Baby';
+import MapScreen from './components/screens/MapScreen';
+import Profile from './components/screens/Profile'; // Import your ProfileScreen
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
