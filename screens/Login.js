@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, Image } from 'react-native';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../config/firebaseConfig';
+import logo from '../assets/Logo.png';  // Import your logo here
 
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -11,7 +12,6 @@ const Login = ({ navigation }) => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        // Assuming the user's displayName is set correctly when signing up
         const displayName = user.displayName || user.email.split('@')[0];
         navigation.navigate('MainTabs', { email: user.email, name: displayName });
       })
@@ -23,6 +23,9 @@ const Login = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+      {/* Display the logo above the login text */}
+      <Image source={logo} style={styles.logo} />
+
       <Text style={styles.title}>Login</Text>
       <TextInput
         style={styles.input}
@@ -60,6 +63,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
+  },
+  logo: {
+    width: 100,  // Adjust size based on your logo dimensions
+    height: 100, 
+    resizeMode: 'contain',
+    marginBottom: 10,  // Add some space between logo and title
   },
   title: {
     fontSize: 36,
