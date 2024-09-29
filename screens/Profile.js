@@ -1,16 +1,21 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome'; // or you can use any icon library you prefer
+import profileImage from '../assets/woman.jpeg'; 
+
 
 const ProfileScreen = () => {
   return (
     <View style={styles.container}>
       {/* Profile Picture and Name */}
       <View style={styles.profileSection}>
-        <Image 
+      <TouchableOpacity>
+            <Image source={profileImage} style={styles.profileImage} />
+          </TouchableOpacity>
+        {/* <Image 
           source={{ uri: 'https://path-to-your-image.com/profile-image' }} 
           style={styles.profileImage} 
-        />
+        />*/ } 
         <Text style={styles.profileName}>Anne</Text>
       </View>
 
@@ -55,6 +60,7 @@ const styles = StyleSheet.create({
     width: 120,
     height: 120,
     borderRadius: 60,
+    marginTop:50,
   },
   profileName: {
     fontSize: 22,
