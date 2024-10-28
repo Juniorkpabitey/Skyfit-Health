@@ -1,6 +1,6 @@
 # Skyfit
 
-![Skyfit](./assets/Skyfit_Startup.png) <!-- Replace with your actual image path -->
+![Skyfit](./assets/Skyfit_Startup.png) 
 
 Skyfit is a comprehensive mobile application designed to support expectant mothers throughout their pregnancy journey. The app offers personalized insights for mothers and the unborn baby including tracking the expectant weeks of pregnancy to delivery period, nutrition tip and more ,appointment reminders, daily motivational support quote, GPS tracker for emergencies and an AI-driven chatbot for assistance.
 
@@ -87,6 +87,21 @@ Skyfit is a comprehensive mobile application designed to support expectant mothe
     ```
 
 
+#### Front End UI
+1. Dashboard
+![Skyfit](./assets/dashboard.png) 
+
+2. Mothers Screen
+![Mother's Screen](./assets/mothers_screen.png)
+
+3. Baby's screen
+![Baby's Screen](./assets/baby_screen.png)
+
+4. Chat's session
+![Chat ](./assets/chat.png)
+
+5. Ai Assistant
+![AI-bot](./assets/ai-bot.png)
 ### AI Model Setup
 
 1. Create a Google Gemini AI model to obtain an API KEY for the chatbot modelling
