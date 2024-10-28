@@ -89,7 +89,7 @@ Skyfit is a comprehensive mobile application designed to support expectant mothe
 
 #### Front End UI
 1. Dashboard
-![Skyfit](./assets/dashboard.png) 
+![Dashboard](./assets/dashboard_screen.png) 
 
 2. Mothers Screen
 ![Mother's Screen](./assets/mothers_screen.png)
