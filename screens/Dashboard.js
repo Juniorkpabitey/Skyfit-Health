@@ -12,12 +12,12 @@ import celebration from '../assets/celebration.json';  // imported celebration a
 
 const Dashboard = ({ navigation, route }) => {
   const email = route.params?.email || 'default@example.com';
-  const name = route.params?.name || 'User';
+  const name = route.params?.name || 'Anne';
 
-  const [weekNumber, setWeekNumber] = useState(10);  // weeks of pregnancy
+  const [weekNumber, setWeekNumber] = useState(25);  // weeks of pregnancy
   const [showCelebration, setShowCelebration] = useState(false);
   const [progress, setProgress] = useState(30);  // Assume progress percentage for 12 weeks
-  const fullTerm = 40;
+  const fullTerm = 37;
 
   const handleLogout = () => {
     signOut(auth)
@@ -73,7 +73,7 @@ const Dashboard = ({ navigation, route }) => {
         {/* Circular Progress Bar */}
         <AnimatedCircularProgress
           size={200}
-          width={20}
+          width={30}
           fill={(weekNumber / fullTerm) * 100}
           tintColor={getProgressColor()}
           backgroundColor="#e0e0e0"
