@@ -34,23 +34,31 @@ const ChatSession = ({ route }) => {
 
   const sendMessage = async () => {
     if (message.trim().length > 0) {
-      // Add the message to the state to display immediately
+      // Create a new message object for immediate local state update
       const newMessage = {
-        id: Math.random().toString(), // Generate a temporary ID
+        id: Math.random().toString(), // Temporary ID
         text: message,
         sender: 'user',
-        timestamp: new Date() // Temporary timestamp
+        timestamp: new Date() // Temporary timestamp for local use
       };
+
+      // Add the message to the local state for instant display
       setMessages(prevMessages => [...prevMessages, newMessage]);
 
-      // Send the message to Firestore
-      await addDoc(collection(database, 'messages', doctorName, 'chats'), {
-        text: message,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-        sender: 'user', // or use the user's ID if you have user authentication
-      });
-
+      // Reset the input field right after adding to state
       setMessage('');
+
+      try {
+        // Send the message to Firestore
+        await addDoc(collection(database, 'messages', doctorName, 'chats'), {
+          text: message,
+          timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+          sender: 'user', // or use the authenticated user's ID
+        });
+      } catch (error) {
+        console.error("Error sending message: ", error);
+        // Optionally, you can handle error cases such as showing an alert or reverting the UI changes
+      }
     }
   };
 
@@ -125,12 +133,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#C5314E',
     borderRadius: 20,
     padding: 2,
-    marginLeft:15,
-    marginTop:10,
-    height:25,
-    width:25,
-    
-   
+    marginLeft: 15,
+    marginTop: 10,
+    height: 25,
+    width: 25,
   },
   header: { flexDirection: 'row', alignItems: 'center', padding: 20, borderBottomWidth: 1, borderBottomColor: '#ccc' },
   doctorImage: { width: 50, height: 50, borderRadius: 25, marginRight: 10 },
