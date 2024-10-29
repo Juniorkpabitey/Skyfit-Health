@@ -44,11 +44,13 @@ const Login = ({ navigation }) => {
       />
       <TouchableOpacity style={styles.button} onPress={handleLogin}>
         <Text style={styles.buttonText}>Login</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> 
+      {/*
       <Text style={styles.or}>Or</Text>
       <TouchableOpacity style={styles.googleButton}>
         <Text style={styles.googleButtonText}>Continue with Google</Text>
       </TouchableOpacity>
+      */}
       <Text style={styles.signUpText}>
         Or <Text onPress={() => navigation.navigate('SignUp')} style={styles.signUpLink}>Sign up</Text>
       </Text>
