@@ -9,7 +9,7 @@ const doctors = [
 
   // Add more doctors here
 ];
-
+ 
 const Message = () => {
   const navigation = useNavigation();
 
